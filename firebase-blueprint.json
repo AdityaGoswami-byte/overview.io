@@ -1,0 +1,49 @@
+{
+  "schemas": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "budgets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": { "type": "string" },
+              "limit": { "type": "number" },
+              "color": { "type": "string" }
+            }
+          }
+        },
+        "createdAt": { "type": "timestamp" },
+        "updatedAt": { "type": "timestamp" }
+      }
+    },
+    "Transaction": {
+      "type": "object",
+      "properties": {
+        "amount": { "type": "number" },
+        "category": { "type": "string" },
+        "date": { "type": "string" },
+        "title": { "type": "string" },
+        "type": { "type": "string", "enum": ["expense", "income"] },
+        "createdAt": { "type": "timestamp" }
+      }
+    }
+  },
+  "collections": {
+    "users": {
+      "$uid": {
+        "schema": "User",
+        "description": "User preferences and budget configs",
+        "collections": {
+          "transactions": {
+            "$transactionId": {
+              "schema": "Transaction",
+              "description": "User transactions"
+            }
+          }
+        }
+      }
+    }
+  }
+}

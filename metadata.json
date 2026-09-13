@@ -1,0 +1,6 @@
+{
+  "name": "Expense Tracker",
+  "description": "A premium, Apple-inspired daily expense tracker and budget manager.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
